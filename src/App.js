@@ -1,21 +1,33 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, { PropTypes, Component } from 'react';
+
 import './App.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+function getNiceName(routes) {
+	let path = (routes[routes.length - 1] || {}).path || 'Main';
+	return path.replace('/', '')
+			.toUpperCase() || 'Unknown Page';
 }
+
+class App extends Component {
+	render() {
+		return (
+			<div className="App">
+				<div className="page-header">
+          <h1>{getNiceName(this.props.routes)}{' '}
+						<small>page</small>
+					</h1>
+				</div>
+				<div className="container App-content">
+					{this.props.children}
+				</div>
+			</div>
+		);
+	}
+}
+
+App.propTypes = {
+	children: PropTypes.node,
+	routes: PropTypes.array
+};
 
 export default App;
