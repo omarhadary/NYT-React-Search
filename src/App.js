@@ -1,7 +1,10 @@
 import React, { PropTypes, Component } from 'react';
-
+// Grabs the Routes
+// import routes from '../server/router/routes';
 import './App.css';
-
+// const express = require('express');
+// const morgan = require('morgan');
+// const path = require('path');
 function getNiceName(routes) {
 	let path = (routes[routes.length - 1] || {}).path || 'Main';
 	return path.replace('/', '')

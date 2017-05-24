@@ -1,19 +1,19 @@
 // Dependencies
-var express = require("express");
-var bodyParser = require("body-parser");
-var logger = require("morgan");
-var mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+const express = require("express");
+const logger = require("morgan");
+const mongoose = require("mongoose");
+// const path = require('path');
 // Requiring our Note and Article models
-// var Note = require("./models/Note.js");
-// var Article = require("./models/Article.js");
+// const Note = require("./models/Note.js");
+// const Article = require("./models/Article.js");
 // bluebird promise for Mongoose
-var Promise = require("bluebird");
+const Promise = require("bluebird");
 
 mongoose.Promise = Promise;
 
-
 // Initialize Express
-var app = express();
+const app = express();
 
 // Use morgan and body parser with our app
 app.use(logger("dev"));
@@ -26,7 +26,7 @@ app.use(express.static("public"));
 
 // Database configuration with mongoose
 mongoose.connect("mongodb://localhost/nytreact");
-var db = mongoose.connection;
+const db = mongoose.connection;
 
 // Show any mongoose errors
 db.on("error", function(error) {
