@@ -1,26 +1,22 @@
 {
   "name": "NYT-React-Search",
-  "version": "0.1.0",
-  "private": true,
-  "devDependencies": {
-    "react-scripts": "0.9.2"
-  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:omarhadary/NYT-React-Search.git",
+  "license": "MIT",
+  "engines": {
+    "node": "6.10.0"  
+},
   "dependencies": {
-    "axios": "^0.15.3",
-    "bluebird": "^3.4.7",
-    "body-parser": "^1.16.1",
-    "express": "^4.14.1",
-    "mongoose": "^4.8.5",
-    "morgan": "^1.8.1",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2",
-    "react-router": "^3.0.2"
+    "concurrently": "^3.1.0",
+    "rimraf": "^2.5.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "server": "babel-node server.js",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "build": "concurrently \"cd client && yarn build\" \"cd server && yarn build\"",
+    "clean": "concurrently \"rimraf node_modules\" \"cd client && rimraf node_modules build\" \"cd server && rimraf node_modules build\"",
+    "heroku-postbuild": "yarn build",
+    "install": "(cd client && yarn) && (cd server && yarn)",
+    "start": "concurrently \"cd client && PORT=3000 yarn start\" \"cd server && PORT=3001 yarn start\"",
+    "start:prod": "cd server && yarn start:prod"
   }
 }

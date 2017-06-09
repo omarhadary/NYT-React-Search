@@ -41,7 +41,10 @@ db.once("open", function() {
 
 // Routes
 
-// Listen on port 8000
-app.listen(8000, function() {
-  console.log("App running on port 8000!");
+// Listen on port 3001
+app.listen(3001, function(error) {
+  if (error) {
+    console.log("server error "+error)
+  }
+  console.log("App running on port 3001!");
 });
