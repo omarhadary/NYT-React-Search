@@ -16,7 +16,7 @@ A React-based rendition of the New York Times Article Search application.
 
 ### Heroku Deployment
 
-https://tukio.com/
+https://nyt-react-search-webapp.herokuapp.com/
 
 ### Tech
 
