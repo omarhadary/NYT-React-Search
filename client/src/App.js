@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 // Grabs the Routes
 // import routes from '../server/router/routes';
 import './App.css';

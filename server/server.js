@@ -47,7 +47,7 @@ db.once("open", function() {
 
 app.get("/api/saved", (req, res) => {
   const article = {
-    title: 'Ali Sells Jersey House And Moves to Chicago',
+    title: 'Ali Sells Jersey House And Moves to Chicago - why not update',
     date: '1974-07-18T00:00:00Z',
     url: 'http://query.nytimes.com/gst/abstract.html?res=9A0DE5D8173FEF34BC4052DFB166838F669EDE'
   }
@@ -58,7 +58,7 @@ app.get("/api/saved", (req, res) => {
 
 app.set('port', (process.env.PORT || 3001))
 
-app.listen(3001, (error) => {
+app.listen(app.get('port'), (error) => {
   if (error) {
     console.log("server error "+error)
   }

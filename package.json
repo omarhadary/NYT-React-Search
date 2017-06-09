@@ -5,9 +5,11 @@
   "repository": "git@github.com:omarhadary/NYT-React-Search.git",
   "license": "MIT",
   "engines": {
-    "node": "6.10.0"  
-},
+    "node": "6.10.0"
+  },
   "dependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
     "concurrently": "^3.1.0",
     "rimraf": "^2.5.4"
   },
@@ -16,7 +18,9 @@
     "clean": "concurrently \"rimraf node_modules\" \"cd client && rimraf node_modules build\" \"cd server && rimraf node_modules build\"",
     "heroku-postbuild": "yarn build",
     "install": "(cd client && yarn) && (cd server && yarn)",
-    "start": "concurrently \"cd client && PORT=3000 yarn start\" \"cd server && PORT=3001 yarn start\"",
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "babel-node start-server.js",
+    "client": "babel-node start-client.js",
     "start:prod": "cd server && yarn start:prod"
   }
 }
